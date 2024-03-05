@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% block title %}
+Post
+{% endblock title %}
+
+
+{% block content %}
+<!--<h1>{{ post }}</h1>-->
+
+   <h1>новость № {{ post.id }}</h1>
+   <hr>
+       <table class="table-bordered" width="100%">
+           <tr>
+               <th>Заголовок</th>
+               <th>Дата</th>
+               <th>Новость</th>
+               <th>Рейтинг</th>
+               <th>Автор</th>
+               <th>Категория</th>
+           </tr>
+
+           <tr align="center">
+               <td width="10%">{{ post.title }}</td>
+               <td width="10%">{{ post.datetime_in|date:'d.m.Y H:i' }}</td>
+               <td width="64%">{{ post.text }}</td>
+               <td width="5%">{{ post.author.user.username }}</td>
+               <td width="5%">{{ post.category }}</td>
+           </tr>
+
+
+       </table>
+<p><a href="/news/">ко всем новостям</a></p>
+
+{% endblock content %}
